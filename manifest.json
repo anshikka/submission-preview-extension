@@ -1,0 +1,11 @@
+{
+    "name": "Canvas Pre-Submission Preview",
+    "version": "1.0.0",
+    "description": "Automatically gives user a preview of the assignment they're submitting on Canvas",
+    "manifest_version": 3,
+    "author": "Ansh Sikka",
+    "action":{
+        "default_popup": "index.html",
+        "default_title": "Submission Preview"
+    }
+}
