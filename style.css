@@ -1,4 +1,10 @@
 dialog {
-    height: 50vh;
-    width: 50vw;
+    height: 90vh;
+    width: 55vw;
+}
+#preview-dialog-button-container {
+    float: bottom;
+}
+#uploaded-file-content {
+    float: top;
 }
