@@ -64,14 +64,16 @@ function preview() {
         preview_dialog.appendChild(file);
         break;
 
-      case uploaded_file.type == "audio/wav": // Audio File
+      case "audio/wav": // Audio File
         var file = document.createElement("embed");
         file.setAttribute("id", "uploaded-file-content");
         file.setAttribute("src", blobUrl);
         file.setAttribute("type", "audio/wav");
         preview_dialog.appendChild(file);
         break;
-      case uploaded_file.type.includes("image/"): // Image file
+      case "image/png":
+      case "image/jpg":
+      case "image/jpeg": // Image file
         var file = document.createElement("img");
         file.setAttribute("id", "uploaded-file-content");
         file.setAttribute("width", "970");
