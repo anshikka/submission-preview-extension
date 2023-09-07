@@ -32,9 +32,7 @@ function preview() {
     cancel_button.innerText = "Cancel";
     button_container.appendChild(cancel_button);
     button_container.appendChild(verified_button);
-
     uploaded_file = document.getElementsByClassName("input-file")[0].files[0]; // Retrieve uploaded file data
-
     // Set up title for dialog with file name
     var dialog_title = document.createElement("h1");
     dialog_title.setAttribute("class", "title");
@@ -97,16 +95,25 @@ function preview() {
     });
     verified_button.addEventListener("click", function (e) {
       preview_dialog.close();
-      submit_assignment_button.style.display = "unset";
-      preview_button.style.display = "none";
-      preview_complete_row = document.createElement("tr");
-      preview_complete_column = document.createElement("td");
-      preview_complete_column.setAttribute("colspan", "2");
-      preview_complete_column.innerHTML =
-        "File was Previewed Before Submission &#10003;";
-      preview_complete_row.appendChild(preview_complete_column);
-      submission_box.appendChild(preview_complete_row);
-    });
+        /* Code snippet authored by Rahim Nathwani */ 
+        const assignmentName = document.querySelector('h1') ? document.querySelector('h1').innerText : '';
+        const assignmentSubname = document.querySelector('h2') ? document.querySelector('h2').innerText : '';
+        const assignmentFullName = `${assignmentName} (${assignmentSubname})`;
+        /*---------------------------------------- */
+        submit_assignment_button.style.display = "unset";
+        submit_assignment_button.innerText = "Submit " + assignmentFullName;
+        preview_button.style.display = "none";
+        preview_complete_row = document.createElement("tr");
+        preview_complete_column = document.createElement("td");
+        preview_complete_column.setAttribute("colspan", "2");
+        preview_complete_column.innerHTML =
+          '<img id="file-uploaded-icon" width="17" height="17" src="https://img.icons8.com/ios-glyphs/30/file--v1.png" alt="file--v1"/><b>' + uploaded_file.name + '</b> was Previewed Before Submission &#10003;';
+        preview_complete_filename_row = document.createElement("tr");
+        preview_complete_filename_column = document.createElement("td");
+        preview_complete_column.setAttribute("colspan", "2");
+        preview_complete_row.appendChild(preview_complete_column);
+        submission_box.appendChild(preview_complete_row);
+      });
     button_container.appendChild(download_link);
     preview_dialog.appendChild(button_container);
   });

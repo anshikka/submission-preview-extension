@@ -8,3 +8,7 @@ dialog {
 #uploaded-file-content {
     float: top;
 }
+
+#file-uploaded-icon {
+    padding-bottom: 1vh;
+}
